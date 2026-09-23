@@ -16,7 +16,6 @@ on:                        # disparadores
   pull_request:
     branches: [main]
 
-
 jobs:
   pruebas:
     runs-on: ubuntu-latest   # máquina nueva y vacía
