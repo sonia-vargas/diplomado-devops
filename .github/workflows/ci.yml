@@ -17,6 +17,20 @@ on:                        # disparadores
     branches: [main]
 
 jobs:
+  lint:
+    name: lint y formato
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+         python-version: "3.12"
+      - run: pip install ruff==0.15.11
+      - name: Reglas de estilo y errores comunes
+        run : ruff check .
+      - name: Formato del codigo
+        run: ruff format --check .
+        
   pruebas:
     runs-on: ubuntu-latest   # máquina nueva y vacía
     steps:
